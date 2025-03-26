@@ -1,0 +1,82 @@
+﻿<Window x:Class="FlowSphere.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowSphere"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None" MinHeight="500" MinWidth="750">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SVGBackgrounds.xaml" />
+                <ResourceDictionary Source="Logo.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="{StaticResource DiWaveHaikeiXaml}"></ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition> </RowDefinition>
+            <RowDefinition Height="25*" MinHeight="150" MaxHeight="200"></RowDefinition>
+            <RowDefinition Height="75*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" VerticalAlignment="Top" Background="Gray"
+                MouseLeftButtonDown="MainWindow_OnMouseLeftButtonDown">
+            <TextBlock Text="Custom Title Bar" VerticalAlignment="Center" Margin="10" />
+        </Border>
+        <Border Grid.Row="1" Padding="0,20,0,0">
+            <Image Source="{StaticResource di_Logo}"></Image>
+        </Border>
+        <StackPanel Grid.Row="2">
+            <TextBlock Grid.Row="2" Text="{Binding HeaderText, Mode=OneWay}" HorizontalAlignment="Center"
+                       TextAlignment="Center" FontSize="28" FontFamily="Century Gothic">
+            </TextBlock>
+            <!-- <Label Width="250" Padding="0">Email</Label> -->
+            <!-- <TextBox Width="250" Margin="5" Padding="5"></TextBox> -->
+            <!-- <Label Width="250" Padding="0">Hasło</Label> -->
+            <!-- <PasswordBox Width="250" Margin="5" Padding="5"></PasswordBox> -->
+            
+            <Border Width="250" Background="#fff" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10" Margin="10">
+                <Grid>
+                    <TextBlock x:Name="EmailPlaceholder" Text="E-mail" HorizontalAlignment="Left"
+                               Foreground="Gray" Background="#fff" FontSize="14"
+                               VerticalAlignment="Center" Margin="0,0,0,0" Padding="1">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+
+
+                    <TextBox x:Name="EmailTextBox" Background="Transparent" BorderThickness="0"
+                             FontSize="16" VerticalAlignment="Center"
+                             GotFocus="TextBoxInput_GotFocus"
+                             LostFocus="TextBoxInput_LostFocus" />
+                </Grid>
+            </Border>
+            <Border Width="250" Background="#fff" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10" Margin="10">
+                <Grid>
+                    <TextBlock x:Name="PasswordPlaceholder" Text="Hasło" HorizontalAlignment="Left"
+                               Foreground="Gray" Background="#fff" FontSize="14"
+                               VerticalAlignment="Center" Margin="0,0,0,0" Padding="1">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+            
+            
+                    <PasswordBox x:Name="PasswordTextBox" Background="Transparent" BorderThickness="0"
+                             FontSize="16" VerticalAlignment="Center"
+                             GotFocus="TextBoxInput_GotFocus"
+                             LostFocus="TextBoxInput_LostFocus" />
+                </Grid>
+            </Border>
+            <Button Width="150" Content="Zaloguj się" Margin="5"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
