@@ -11,6 +11,10 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System;
+using System.Windows;
+using System.Windows.Interop;
+using System.Runtime.InteropServices;
 
 namespace FlowSphere;
 
@@ -27,6 +31,17 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         HeaderText = "Logowanie";
     }
 
+    private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        if (this.WindowState == WindowState.Maximized)
+        {
+            this.BorderThickness = new System.Windows.Thickness(8);
+        }
+        else
+        {
+            this.BorderThickness = new System.Windows.Thickness(0);
+        }
+    }
     private string _headerText;
 
     public string HeaderText
@@ -82,6 +97,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             }
         }
     }
+    
 
 
     private void TextBoxInput_LostFocus(object sender, RoutedEventArgs e)

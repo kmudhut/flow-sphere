@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="FlowSphere.UserControls.TitleBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:FlowSphere.UserControls"
+             mc:Ignorable="d"
+             d:DesignHeight="35" d:DesignWidth="1000">
+    <Grid HorizontalAlignment="Stretch" MouseLeftButtonDown="DragMoveParentWindow" MouseDown="MaximizeParentWindowIfDoubleClicked">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"> </ColumnDefinition>
+            <ColumnDefinition MinWidth="150" Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="WhiteSmoke" Height="35" >
+            <TextBlock Text="FlowSphere" VerticalAlignment="Center"
+                               HorizontalAlignment="Left" Margin="15,0,0,0" FontSize="16" FontFamily="../Assets/Fonts/#Nunito" />
+        </Border>
+        <StackPanel Grid.Column="1"  Background="Transparent" Height="35"  Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Background="Transparent" HorizontalAlignment="Right" Width="50" Padding="0"   BorderBrush="Transparent"
+                    Click="MinimizeParentWindow">
+                <Button.Content>
+                    <Image Width="16" Height="16" Source="/Assets/Icons/minimizeWindowBtn.png"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Right" Width="50" Padding="0"  Background="Transparent" BorderBrush="Transparent"
+                    Click="MaximizeParentWindow">
+                <Button.Content>
+                    <Image Width="16" Height="16" Source="/Assets/Icons/maximizeWindowBtn.png"/>
+                </Button.Content>
+            </Button>
+            <Button HorizontalAlignment="Right" Width="50" Padding="0"  Background="Transparent" BorderBrush="Transparent"
+                    Click="CloseParentWindow">
+                <Button.Content>
+                    <Image Width="16" Height="16" Source="/Assets/Icons/closeBtn.png"/>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

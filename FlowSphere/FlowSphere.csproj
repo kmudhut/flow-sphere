@@ -12,4 +12,33 @@
       <None Remove="wave-haikei.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Assets\Images\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Assets\SVGs\SVGBackgrounds.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Assets\SVGs\Logo.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\Icons\minimizeWindowBtn.png" />
+      <Resource Include="Assets\Icons\minimizeWindowBtn.png" />
+      <None Remove="Assets\Icons\closeBtn.png" />
+      <Resource Include="Assets\Icons\closeBtn.png" />
+      <None Remove="Assets\Icons\maximizeWindowBtn.png" />
+      <Resource Include="Assets\Icons\maximizeWindowBtn.png" />
+      <None Remove="Assets\Fonts\Nunito-VariableFont_wght.ttf" />
+      <None Remove="Assets\Fonts\Nunito-Regular.ttf" />
+      <Resource Include="Assets\Fonts\Nunito-Regular.ttf" />
+    </ItemGroup>
+
 </Project>
