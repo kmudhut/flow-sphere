@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:FlowSphere.UserControls"
              mc:Ignorable="d"
              d:DesignHeight="35" d:DesignWidth="1000">
-    <Grid HorizontalAlignment="Stretch" MouseLeftButtonDown="DragMoveParentWindow" MouseDown="MaximizeParentWindowIfDoubleClicked">
+    <Grid HorizontalAlignment="Stretch" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"> </ColumnDefinition>
             <ColumnDefinition MinWidth="150" Width="Auto"></ColumnDefinition>
