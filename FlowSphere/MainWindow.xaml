@@ -29,7 +29,6 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
-        
         <userControls:TitleBar Grid.Row="0"></userControls:TitleBar>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,50">
             <Image MaxHeight="125" Margin="0,0,0,25" Source="{StaticResource di_Logo}"></Image>

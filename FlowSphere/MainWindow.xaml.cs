@@ -30,7 +30,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         InitializeComponent();
         HeaderText = "Logowanie";
     }
-
+    
     private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         if (this.WindowState == WindowState.Maximized)

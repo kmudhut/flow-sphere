@@ -19,19 +19,19 @@
             <Button Background="Transparent" HorizontalAlignment="Right" Width="50" Padding="0"   BorderBrush="Transparent"
                     Click="MinimizeParentWindow">
                 <Button.Content>
-                    <Image Width="16" Height="16" Source="/Assets/Icons/minimizeWindowBtn.png"/>
+                    <Image Width="14" Height="14" Source="/Assets/Icons/minimizeWindowBtn.png"/>
                 </Button.Content>
             </Button>
             <Button HorizontalAlignment="Right" Width="50" Padding="0"  Background="Transparent" BorderBrush="Transparent"
                     Click="MaximizeParentWindow">
                 <Button.Content>
-                    <Image Width="16" Height="16" Source="/Assets/Icons/maximizeWindowBtn.png"/>
+                    <Image Width="14" Height="14" Source="/Assets/Icons/maximizeWindowBtn.png"/>
                 </Button.Content>
             </Button>
             <Button HorizontalAlignment="Right" Width="50" Padding="0"  Background="Transparent" BorderBrush="Transparent"
                     Click="CloseParentWindow">
                 <Button.Content>
-                    <Image Width="16" Height="16" Source="/Assets/Icons/closeBtn.png"/>
+                    <Image Width="14" Height="14" Source="/Assets/Icons/closeBtn.png"/>
                 </Button.Content>
             </Button>
         </StackPanel>
