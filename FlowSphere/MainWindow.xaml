@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlowSphere"
         xmlns:userControls="clr-namespace:FlowSphere.UserControls"
+        xmlns:views="clr-namespace:FlowSphere.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="SingleBorderWindow" MinHeight="500" MinWidth="750"  SizeChanged="Window_SizeChanged">
+        Title="MainWindow" Height="450" Width="800" WindowStyle="SingleBorderWindow" MinHeight="500" MinWidth="750"
+        SizeChanged="Window_SizeChanged">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,59 +20,15 @@
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="1" CornerRadius="10" CaptionHeight="0"></WindowChrome>
     </WindowChrome.WindowChrome>
-
-
     <Grid>
-        <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="{StaticResource DiWaveHaikeiXaml}"></ImageBrush>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"> </RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
         <userControls:TitleBar Grid.Row="0"></userControls:TitleBar>
-        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,50">
-            <Image MaxHeight="125" Margin="0,0,0,25" Source="{StaticResource di_Logo}"></Image>
-            <TextBlock Text="{Binding HeaderText, Mode=OneWay}" HorizontalAlignment="Center"
-                       TextAlignment="Center" FontSize="28" FontFamily="/Assets/Fonts/#Nunito">
-            </TextBlock>
-            
-            <Border Width="250" Background="#fff" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10" Margin="10">
-                <Grid>
-                    <TextBlock FontFamily="../Assets/Fonts/#Nunito" x:Name="EmailPlaceholder" Text="E-mail" HorizontalAlignment="Left"
-                               Foreground="Gray" Background="#fff" FontSize="14"
-                               VerticalAlignment="Center" Margin="0,0,0,0" Padding="1">
-                        <TextBlock.RenderTransform>
-                            <TranslateTransform />
-                        </TextBlock.RenderTransform>
-                    </TextBlock>
-
-
-                    <TextBox FontFamily="../Assets/Fonts/#Nunito" x:Name="EmailTextBox" Background="Transparent" BorderThickness="0"
-                             FontSize="16" VerticalAlignment="Center"
-                             GotFocus="TextBoxInput_GotFocus"
-                             LostFocus="TextBoxInput_LostFocus" />
-                </Grid>
-            </Border>
-            <Border Width="250" Background="#fff" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10" Margin="10">
-                <Grid>
-                    <TextBlock FontFamily="../Assets/Fonts/#Nunito" x:Name="PasswordPlaceholder" Text="Hasło" HorizontalAlignment="Left"
-                               Foreground="Gray" Background="#fff" FontSize="14"
-                               VerticalAlignment="Center" Margin="0,0,0,0" Padding="1">
-                        <TextBlock.RenderTransform>
-                            <TranslateTransform />
-                        </TextBlock.RenderTransform>
-                    </TextBlock>
-                    
-                    <PasswordBox FontFamily="../Assets/Fonts/#Nunito" x:Name="PasswordTextBox" Background="Transparent" BorderThickness="0"
-                                 FontSize="16" VerticalAlignment="Center"
-                                 GotFocus="TextBoxInput_GotFocus"
-                                 LostFocus="TextBoxInput_LostFocus" />
-                </Grid>
-            </Border>
-            <Button Height="50" FontFamily="../Assets/Fonts/#Nunito" Width="150" Content="Zaloguj się" Margin="5"></Button>
-            <TextBlock HorizontalAlignment="Center"><Hyperlink NavigateUri="http://www.google.com">Nie mam konta</Hyperlink></TextBlock>
-        </StackPanel>
+        <ContentControl Grid.Row="1">
+            <views:LoginView />
+        </ContentControl>
     </Grid>
+    
 </Window>

@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="FlowSphere.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:FlowSphere.Views"
+             xmlns:userControls="clr-namespace:FlowSphere.UserControls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Assets/SVGs/SVGBackgrounds.xaml" />
+                <ResourceDictionary Source="../Assets/SVGs/Logo.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+ <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="{StaticResource DiWaveHaikeiXaml}"></ImageBrush>
+        </Grid.Background>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,50">
+            <Image MaxHeight="125" Margin="0,0,0,25" Source="{StaticResource di_Logo}"></Image>
+            <TextBlock Text="Logowanie" HorizontalAlignment="Center"
+                       TextAlignment="Center" FontSize="28" FontFamily="/Assets/Fonts/#Nunito">
+            </TextBlock>
+            
+            <Border Width="250" Background="#fff" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10" Margin="10">
+                <Grid>
+                    <TextBlock FontFamily="../Assets/Fonts/#Nunito" x:Name="EmailPlaceholder" Text="E-mail" HorizontalAlignment="Left"
+                               Foreground="Gray" Background="#fff" FontSize="14"
+                               VerticalAlignment="Center" Margin="0,0,0,0" Padding="1">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+
+
+                    <TextBox FontFamily="../Assets/Fonts/#Nunito" x:Name="EmailTextBox" Background="Transparent" BorderThickness="0"
+                             FontSize="16" VerticalAlignment="Center"
+                             GotFocus="TextBoxInput_GotFocus"
+                             LostFocus="TextBoxInput_LostFocus" />
+                </Grid>
+            </Border>
+            <Border Width="250" Background="#fff" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10" Margin="10">
+                <Border.Effect>
+                    <DropShadowEffect 
+                        Color="Black"            
+                        Direction="315"          
+                        ShadowDepth="-20"          
+                        BlurRadius="5"          
+                        Opacity="0.5"            
+                    />
+                </Border.Effect>
+                <Grid>
+                    <TextBlock FontFamily="../Assets/Fonts/#Nunito" x:Name="PasswordPlaceholder" Text="Hasło" HorizontalAlignment="Left"
+                               Foreground="Gray" Background="#fff" FontSize="14"
+                               VerticalAlignment="Center" Margin="0,0,0,0" Padding="1">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                    
+                    <PasswordBox FontFamily="../Assets/Fonts/#Nunito" x:Name="PasswordTextBox" Background="Transparent" BorderThickness="0"
+                                 FontSize="16" VerticalAlignment="Center"
+                                 GotFocus="TextBoxInput_GotFocus"
+                                 LostFocus="TextBoxInput_LostFocus" />
+                </Grid>
+            </Border>
+            <Button Height="50" FontFamily="../Assets/Fonts/#Nunito" Width="150" Content="Zaloguj się" Margin="5"></Button>
+            <TextBlock HorizontalAlignment="Center"><Hyperlink NavigateUri="http://www.google.com">Nie mam konta</Hyperlink></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

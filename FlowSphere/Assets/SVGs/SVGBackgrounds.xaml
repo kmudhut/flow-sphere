@@ -4,7 +4,7 @@
         <DrawingGroup.ClipGeometry>
             <RectangleGeometry Rect="0.0,0.0,900.0,600.0" />
         </DrawingGroup.ClipGeometry>
-        <GeometryDrawing Brush="#fff5f5f5">
+        <GeometryDrawing Brush="#fff">
             <GeometryDrawing.Geometry>
                 <RectangleGeometry Rect="0.0,0.0,900.0,600.0" />
             </GeometryDrawing.Geometry>
