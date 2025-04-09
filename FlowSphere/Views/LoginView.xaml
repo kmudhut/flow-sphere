@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:FlowSphere.Views"
              xmlns:userControls="clr-namespace:FlowSphere.UserControls"
-             mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -39,35 +38,13 @@
                     <TextBox FontFamily="../Assets/Fonts/#Nunito" x:Name="EmailTextBox" Background="Transparent" BorderThickness="0"
                              FontSize="16" VerticalAlignment="Center"
                              GotFocus="TextBoxInput_GotFocus"
-                             LostFocus="TextBoxInput_LostFocus" />
+                             LostFocus="TextBoxInput_LostFocus" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
             </Border>
-            <Border Width="250" Background="#fff" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10" Margin="10">
-                <Border.Effect>
-                    <DropShadowEffect 
-                        Color="Black"            
-                        Direction="315"          
-                        ShadowDepth="-20"          
-                        BlurRadius="5"          
-                        Opacity="0.5"            
-                    />
-                </Border.Effect>
-                <Grid>
-                    <TextBlock FontFamily="../Assets/Fonts/#Nunito" x:Name="PasswordPlaceholder" Text="Hasło" HorizontalAlignment="Left"
-                               Foreground="Gray" Background="#fff" FontSize="14"
-                               VerticalAlignment="Center" Margin="0,0,0,0" Padding="1">
-                        <TextBlock.RenderTransform>
-                            <TranslateTransform />
-                        </TextBlock.RenderTransform>
-                    </TextBlock>
-                    
-                    <PasswordBox FontFamily="../Assets/Fonts/#Nunito" x:Name="PasswordTextBox" Background="Transparent" BorderThickness="0"
-                                 FontSize="16" VerticalAlignment="Center"
-                                 GotFocus="TextBoxInput_GotFocus"
-                                 LostFocus="TextBoxInput_LostFocus" />
-                </Grid>
-            </Border>
-            <Button Height="50" FontFamily="../Assets/Fonts/#Nunito" Width="150" Content="Zaloguj się" Margin="5"></Button>
+            <TextBlock Padding="0,2,0,0" Text="{Binding EmailErrorMessage}" Foreground="red" FontSize="10" Margin="15,-10,0,0" FontFamily="../Assets/Fonts/#Nunito"></TextBlock>
+            <userControls:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></userControls:BindablePasswordBox>
+            <TextBlock Padding="0,2,0,0" Text="{Binding PasswordErrorMessage}" Foreground="red" FontSize="10" Margin="15,-10,0,0" FontFamily="../Assets/Fonts/#Nunito"></TextBlock>
+            <Button Height="50" FontFamily="../Assets/Fonts/#Nunito" Width="150" Content="Zaloguj się" Margin="5" Command="{Binding LoginCommand}"></Button>
             <TextBlock HorizontalAlignment="Center"><Hyperlink NavigateUri="http://www.google.com">Nie mam konta</Hyperlink></TextBlock>
         </StackPanel>
     </Grid>
