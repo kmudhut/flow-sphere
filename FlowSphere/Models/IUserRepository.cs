@@ -4,7 +4,7 @@ namespace FlowSphere.Models;
 
 public interface IUserRepository
 {
-    int AuthenticateUser(NetworkCredential credentials);
+    Task<int>AuthenticateUser(NetworkCredential credentials);
     void CreateUser(UserModel user);
     void RemoveUser(string id);
     UserModel GetUserById(string id);

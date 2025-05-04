@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:FlowSphere"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
+        <ResourceDictionary Source="/Styles/ButtonStyles.xaml"></ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -8,9 +8,9 @@ namespace FlowSphere.Views;
 
 public partial class LoginView : UserControl
 {
-    public LoginView()
+    public LoginView(MainWindowViewModel mainVM)
     {
-        LoginViewModel vm = new LoginViewModel();
+        LoginViewModel vm = new LoginViewModel(mainVM);
         DataContext = vm;
         InitializeComponent();
     }

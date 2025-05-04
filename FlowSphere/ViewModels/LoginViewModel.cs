@@ -1,16 +1,20 @@
 ﻿using System.Net;
 using System.Security;
+using System.Security.Principal;
 using System.Windows.Input;
 using FlowSphere.MVVM;
 using System.Text.RegularExpressions;
 using System.Windows;
 using FlowSphere.Models;
 using FlowSphere.Repositories;
+using FlowSphere.Views;
 
 namespace FlowSphere.ViewModels;
 
 public class LoginViewModel : ViewModelBase
 {
+    private MainWindowViewModel _mainVM;
+    
     private string _email;
     private string _password;
     private string _emailErrorMessage;
@@ -64,8 +68,9 @@ public class LoginViewModel : ViewModelBase
     
     public ICommand LoginCommand { get; set; }
 
-    public LoginViewModel()
+    public LoginViewModel(MainWindowViewModel mainVM)
     {
+        _mainVM = mainVM;
         _userRepository = new UserRepository();
         LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
     }
@@ -84,14 +89,19 @@ public class LoginViewModel : ViewModelBase
         return validEMail && validPassword;
     }
 
-    private void ExecuteLoginCommand(object obj)
+    private async void ExecuteLoginCommand(object obj)
     {
         try
         {
-            var isUserValid = _userRepository.AuthenticateUser(new NetworkCredential(Email, Password));
+            var isUserValid =  await _userRepository.AuthenticateUser(new NetworkCredential(Email, Password));
             
             if (isUserValid == 1) EmailErrorMessage = "Nie odnaleziono takiego adresu e-mail.";
             else if (isUserValid == 2) PasswordErrorMessage = "Niepoprawne hasło.";
+            else
+            {
+                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Email), null);
+                _mainVM.SwitchToMainView();
+            }
         }
         catch (Exception ex)
         {

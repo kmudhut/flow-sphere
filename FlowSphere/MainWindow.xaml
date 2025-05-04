@@ -25,10 +25,13 @@
             <RowDefinition Height="35"> </RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        
         <userControls:TitleBar Grid.Row="0"></userControls:TitleBar>
-        <ContentControl Grid.Row="1">
-            <views:LoginView />
-        </ContentControl>
+        <Grid Grid.Row="1">
+            <ContentControl Content="{Binding CurrentView}">
+            </ContentControl>
+        </Grid>
+        
     </Grid>
     
 </Window>

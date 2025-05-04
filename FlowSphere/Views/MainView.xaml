@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="FlowSphere.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:FlowSphere.Views"
+             mc:Ignorable="d"
+             d:DesignWidth="500" d:DesignHeight="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Assets/SVGs/SVGBackgrounds.xaml" />
+                <ResourceDictionary Source="../Assets/SVGs/Logo.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border VerticalAlignment="Stretch" Grid.Column="0" Background="#f9f9f9" CornerRadius="0 10 10 0">
+            <StackPanel VerticalAlignment="Stretch">
+                <Image MaxHeight="75" Margin="0,25,0, 25" Source="{StaticResource di_Logo}"></Image>
+                <TextBlock VerticalAlignment="Bottom" Padding="5" TextWrapping="Wrap">
+                    Zalogowany użytkownik: <Run Text="{Binding LoggedUserName}" />
+                </TextBlock>
+                <RadioButton Command="{Binding ShowProjectsViewCommand}" IsChecked="True" Style="{StaticResource menuButton}" Tag="red">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Projekty"></TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Command="{Binding ShowSettingsViewCommand}" Style="{StaticResource menuButton}" Tag="red">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ustawienia"></TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+        </Border>
+        <ContentControl Grid.Column="1" Content="{Binding CurrentView}">
+            
+        </ContentControl>
+    </Grid>
+</UserControl>
