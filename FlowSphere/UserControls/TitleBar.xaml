@@ -11,11 +11,11 @@
             <ColumnDefinition Width="*"> </ColumnDefinition>
             <ColumnDefinition MinWidth="150" Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Background="White" Height="35" >
+        <Border Grid.Column="0" Background="Transparent" Height="35" >
             <TextBlock Text="FlowSphere" VerticalAlignment="Center"
                                HorizontalAlignment="Left" Margin="15,0,0,0" FontSize="16" FontFamily="../Assets/Fonts/#Nunito" />
         </Border>
-        <StackPanel Grid.Column="1"  Background="White" Height="35"  Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Column="1"  Background="Transparent" Height="35"  Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Background="Transparent" HorizontalAlignment="Right" Width="50" Padding="0"   BorderBrush="Transparent"
                     Click="MinimizeParentWindow">
                 <Button.Content>

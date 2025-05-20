@@ -15,6 +15,7 @@ using System;
 using System.Windows;
 using System.Windows.Interop;
 using System.Runtime.InteropServices;
+using FlowSphere.ViewModels;
 
 namespace FlowSphere;
 
@@ -26,7 +27,10 @@ public partial class MainWindow : Window
 
     public MainWindow()
     {
+        MainWindowViewModel vm = new MainWindowViewModel();
+        this.DataContext = vm;
         InitializeComponent();
+        
     }
     
     private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

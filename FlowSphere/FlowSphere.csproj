@@ -16,10 +16,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\Images\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Page Update="Assets\SVGs\SVGBackgrounds.xaml">
         <Generator>MSBuild:Compile</Generator>
         <XamlRuntime>Wpf</XamlRuntime>

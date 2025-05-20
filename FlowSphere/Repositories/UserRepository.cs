@@ -19,9 +19,9 @@ public class UserRepository : IUserRepository
         _users = database.GetCollection<UserModel>("users");
     }
 
-    public int AuthenticateUser(NetworkCredential credentials)
+    public async Task<int> AuthenticateUser(NetworkCredential credentials)
     {
-        var user = _users.Find(u => u.Email == credentials.UserName).FirstOrDefault();
+        var user = await _users.Find(u => u.Email == credentials.UserName).FirstOrDefaultAsync();
 
         if (user == null)
         {
